@@ -1,7 +1,13 @@
+import Navbar from "./components/Navbar/Header";
+import './App.scss'
+
 function App() {
   return (
-    <div>
-      init
+    <div className="app">
+      <Navbar />
+      {/* <Header />
+      <About />
+      <Footer /> */}
     </div>
   );
 }
