@@ -1,0 +1,66 @@
+  .hero {
+    padding: 10rem 2rem 0rem;
+
+    .hero__container {
+      height: 750px;
+    }
+  
+    @media screen and (min-width: 2000px) {
+      padding-top: 8rem;
+    }
+  
+    @media screen and (max-width: 1200px) {
+      flex-direction: column;
+    }
+  
+    @media screen and (max-width: 450px) {
+      padding: 6rem 1rem 2rem;
+    }
+  }
+
+  .hero__content {
+    position: relative;
+    height: 100%;
+  }
+
+  .hero__info {
+    position: absolute;
+    max-width: 50%;
+    right: 5px;
+    top: 250px;
+    .hero__title {
+      font-weight: 500;
+    }
+    .hero__subtitle {
+      display: block;
+    }
+    .hero__button {
+      display: inline-flex;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      padding: .3rem 1rem;
+      border-radius: .4rem;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+      max-width: 54%;
+      right: 0px;
+      top: 220px;
+      font-size: 15px;
+    }
+  }
+  
+  .hero__img {
+    height: 100%;
+    img {
+      height: 100%;
+    }
+  
+    @media screen and (max-width: 768px) {
+      width: 115%;
+      left: -170px;
+      position: absolute;
+      margin: 2rem 0;
+    }
+  }

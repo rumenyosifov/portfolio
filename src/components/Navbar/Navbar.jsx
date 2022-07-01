@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion, useViewportScroll, useTransform, useCycle } from 'framer-motion';
-import './Header.scss';
+import './Navbar.scss';
 import Hamburger from './Hamburger.jsx';
+import logo from '../../assets/logo.png';
 
 const Navbar = () => {
   const { scrollYProgress } = useViewportScroll();
-  const sectionMove = useTransform(scrollYProgress, [0, 0.2], ['15vh', '8vh']);
+  const sectionMove = useTransform(scrollYProgress, [0, 0.2], ['10rem', '5rem']);
   const [isOpen, toggleOpen] = useCycle(false, true);
 
   const boxShadow = useTransform(
@@ -30,24 +31,21 @@ const Navbar = () => {
     },
   };
 
-  console.log(isOpen)
-
   return (
     <motion.header
-      className="header"
+      className="navbar"
       style={{ height: sectionMove, boxShadow }}
       initial={false}
       animate={isOpen ? 'open' : 'closed'}
     >
-      <div className='container header-container'>
-        <a href='#home' className='header__logo'>
-          {/* <Logo /> */}
-          Yosifov
+      <div className="container navbar__container">
+        <a href='#home' className="navbar__logo">
+          <img src={logo} alt="logo" />
         </a>
-        <nav className="header__navbar">
-          <ul className="header__list">
+        <nav className="navbar__nav">
+          <ul className="navbar__list">
             {['home', 'about', 'contact', 'work', 'skills'].map((item) => (
-                <li className="header__element" key={`link-${item}`}>
+                <li className="navbar__element" key={`link-${item}`}>
                   <a href={`#${item}`} onClick={toggleOpen}>
                     {item}
                   </a>
@@ -56,7 +54,7 @@ const Navbar = () => {
           </ul>
         </nav>
         <Hamburger toggle={() => toggleOpen()} />
-        <motion.nav className="header__navbar-mobile" variants={sidebar}>
+        <motion.nav className="navbar__nav-mobile" variants={sidebar}>
           <ul>
             {['home', 'about', 'contact', 'work', 'skills'].map((item) => (
               <li key={item}>
